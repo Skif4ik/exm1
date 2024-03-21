@@ -27,5 +27,28 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        int[] arr2 = new int[arr1.length];
+        int index = 0;
+
+        try(BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))){
+
+            String fileLine = br.readLine().trim();
+            String[] elems = fileLine.split(" ");
+            for (String elem : elems) {
+                int x = Integer.parseInt(elem);
+                if(x>0) {
+                    arr2[index++] = x;
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        arr2 = Arrays.copyOf(arr2, index);
+        System.out.println(Arrays.toString(arr2));
     }
 }
